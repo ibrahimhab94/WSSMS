@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>  </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="ag9IKyZqXqHR3h0q1W19YQNwtm5PZ9bBWgTOEJX9">
+    <!-- #CSS Links -->
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/font-awesome.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/demo.css">
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/smartadmin-production-plugins.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/smartadmin-production.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/smartadmin-skins.css">
+
+    <!-- SmartAdmin RTL Support -->
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/smartadmin-rtl.css">
+
+    <!-- We recommend you use "your_style.css" to override SmartAdmin
+         specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+    <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="tickets_files/custom.css">
+    <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+
+    <!-- #FAVICONS -->
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/assets/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://127.0.0.1:8000/assets/img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- #GOOGLE FONT -->
+    <link rel="stylesheet" href="tickets_files/css.css">
+
+            
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<!--
+
+TABLE OF CONTENTS.
+
+Use search to find needed section.
+
+===================================================================
+
+|  01. #CSS Links                |  all CSS links and file paths  |
+|  02. #FAVICONS                 |  Favicon links and file paths  |
+|  03. #GOOGLE FONT              |  Google font link              |
+|  04. #APP SCREEN / ICONS       |  app icons, screen backdrops   |
+|  05. #BODY                     |  body tag                      |
+|  06. #HEADER                   |  header tag                    |
+|  07. #PROJECTS                 |  project lists                 |
+|  08. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
+|  09. #MOBILE                   |  mobile view dropdown          |
+|  10. #SEARCH                   |  search field                  |
+|  11. #NAVIGATION               |  left panel & navigation       |
+|  12. #MAIN PANEL               |  main panel                    |
+|  13. #MAIN CONTENT             |  content holder                |
+|  14. #PAGE FOOTER              |  page footer                   |
+|  15. #SHORTCUT AREA            |  dropdown shortcuts area       |
+|  16. #PLUGINS                  |  all scripts and plugins       |
+
+===================================================================
+
+-->
+
+<!-- #BODY -->
+<!-- Possible Classes
+
+    * 'smart-style-{SKIN#}'
+    * 'smart-rtl'         - Switch theme mode to RTL
+    * 'menu-on-top'       - Switch to top navigation (no DOM change required)
+    * 'no-menu'			  - Hides the menu completely
+    * 'hidden-menu'       - Hides the main menu but still accessable by hovering over left edge
+    * 'fixed-header'      - Fixes the header
+    * 'fixed-navigation'  - Fixes the main menu
+    * 'fixed-ribbon'      - Fixes breadcrumb
+    * 'fixed-page-footer' - Fixes footer
+    * 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
+-->
+<body class="smart-rtl desktop-detected pace-done"><div class="pace  pace-inactive"><div class="pace-progress" style="transform: translate3d(0%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<!-- #HEADER -->
+<header id="header">
+    <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <span id="logo"> <img src="tickets_files/logo.png" alt="SmartAdmin"> </span>
+        <!-- END LOGO PLACEHOLDER -->
+
+        <!-- Note: The activity badge color changes when clicked and resets the number to 0
+             Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+        <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge bg-color-red bounceIn animated"> 21 </b> </span>
+
+        <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
+        <div class="ajax-dropdown">
+
+            <!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input name="activity" id="/assets/ajax/notify/mail.html" type="radio">
+                    Msgs (14) </label>
+                <label class="btn btn-default">
+                    <input name="activity" id="/assets/ajax/notify/notifications.html" type="radio">
+                    notify (3) </label>
+                <label class="btn btn-default">
+                    <input name="activity" id="/assets/ajax/notify/tasks.html" type="radio">
+                    Tasks (4) </label>
+            </div>
+
+            <!-- notification content -->
+            <div class="ajax-notifications custom-scroll">
+
+                <div class="alert alert-transparent">
+                    <h4>Click a button to show messages here</h4>
+                    This blank page message helps protect your privacy, or you can show the first message here automatically.
+                </div>
+
+                <i class="fa fa-lock fa-4x fa-border"></i>
+
+            </div>
+            <!-- end notification content -->
+
+            <!-- footer: refresh area -->
+            <span> Last updated on: 12/12/2013 9:43AM
+						<button type="button" data-loading-text="&lt;i class='fa fa-refresh fa-spin'&gt;&lt;/i&gt; Loading..." class="btn btn-xs btn-default pull-right">
+							<i class="fa fa-refresh"></i>
+						</button> </span>
+            <!-- end footer -->
+
+        </div>
+        <!-- END AJAX-DROPDOWN -->
+    </div>
+
+    <!-- #PROJECTS: projects dropdown -->
+    <div class="project-context hidden-xs">
+
+        <span class="label">Projects:</span>
+        <span class="project-selector dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+
+        <!-- Suggestion: populate this list with fetch and push technique -->
+        <ul class="dropdown-menu">
+            <li>
+                <a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Notes on pipeline upgradee</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Assesment Report for merchant account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+            </li>
+        </ul>
+        <!-- end dropdown-menu-->
+
+    </div>
+    <!-- end projects dropdown -->
+
+    <!-- #TOGGLE LAYOUT BUTTONS -->
+    <!-- pulled right: nav area -->
+    <div class="pull-right">
+
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+            <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+        </div>
+        <!-- end collapse menu -->
+
+        <!-- #MOBILE -->
+        <!-- Top menu profile link : this shows only when top menu is active -->
+        <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+            <li class="">
+                <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+                    <img src="tickets_files/sunny.html" alt="John Doe" class="online">
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- logout button -->
+        <div id="logout" class="btn-header transparent pull-right">
+            <span> <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+        </div>
+        <!-- end logout button -->
+
+        <!-- search mobile button (this is hidden till mobile view port) -->
+        <div id="search-mobile" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+        </div>
+        <!-- end search mobile button -->
+
+        <!-- #SEARCH -->
+        <!-- input: search field -->
+        <form action="search.html" class="header-search pull-right">
+            <input id="search-fld" name="param" placeholder="Find reports and more" type="text">
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+        </form>
+        <!-- end input: search field -->
+
+        <!-- fullscreen button -->
+        <div id="fullscreen" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+        </div>
+        <!-- end fullscreen button -->
+
+        <!-- #Voice Command: Start Speech -->
+        <div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs display-none">
+            <div>
+                <a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a>
+                <div class="popover bottom"><div class="arrow"></div>
+                    <div class="popover-content">
+                        <h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
+                        <h4 class="vc-title-error text-center">
+                            <i class="fa fa-microphone-slash"></i> Voice command failed
+                            <br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
+                            <br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
+                        </h4>
+                        <a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a>
+                        <a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end voice command -->
+
+        <!-- multiple lang dropdown : find all flags in the flags page -->
+        <ul class="header-dropdown-list hidden-xs">
+            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="tickets_files/blank.gif" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
+                <ul class="dropdown-menu pull-right">
+                    <li class="active">
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-fr" alt="France"> Français</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-es" alt="Spanish"> Español</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-de" alt="German"> Deutsch</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-jp" alt="Japan"> 日本語</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-cn" alt="China"> 中文</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-it" alt="Italy"> Italiano</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-pt" alt="Portugal"> Portugal</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-ru" alt="Russia"> Русский язык</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><img src="tickets_files/blank.gif" class="flag flag-kr" alt="Korea"> 한국어</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+        <!-- end multiple lang -->
+
+    </div>
+    <!-- end pulled right: nav area -->
+
+</header><!-- END HEADER -->
+
+<!-- #NAVIGATION -->
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<aside id="left-panel">
+
+    <!-- User info -->
+    <div class="login-info">
+				<span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+
+					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+						<img src="tickets_files/sunny.png" alt="me" class="online">
+						<span>
+							john.doe
+						</span>
+						<i class="fa fa-angle-down"></i>
+					</a>
+
+				</span>
+    </div>
+    <!-- end user info -->
+
+    <nav>
+        <!--
+        NOTE: Notice the gaps after each icon usage <i></i>..
+        Please note that these links work a bit different than
+        traditional href="" links. See documentation for details.
+        -->
+
+        <ul>
+            <li class="active open">
+                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">بيانات عامه</span><b class="collapse-sign"><em class="fa fa-minus-square-o"></em></b></a>
+                <ul style="display: block;">
+                    <li class="active">
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/index.html" title="Dashboard"><span class="menu-item-parent">Analytic s Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-marketing.html" title="Dashboard"><span class="menu-item-parent">Marketing Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="open">
+                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">خدمة الزبائن</span><b class="collapse-sign"><em class="fa fa-minus-square-o"></em></b></a>
+                <ul style="display: block;">
+                    <li class="active">
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/tickets" title="Dashboard"><span class="menu-item-parent">عرض التذاكر</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-marketing.html" title="Dashboard"><span class="menu-item-parent">حالة الموظفون</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="open">
+                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">العملاء</span><b class="collapse-sign"><em class="fa fa-minus-square-o"></em></b></a>
+                <ul style="display: block;">
+                    <li class="active">
+                        <a href="http://127.0.0.1:8000/Dashboard/Customers/List" title="Dashboard"><span class="menu-item-parent">العملاء / الزبائن</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-marketing.html" title="Dashboard"><span class="menu-item-parent">حالة الموظفون</span></a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="chat-users top-menu-invisible">
+                <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i> <span class="menu-item-parent">Smart Chat API <sup>beta</sup></span><b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
+                <ul>
+                    <li>
+                        <!-- DISPLAY USERS -->
+                        <div class="display-users">
+
+                            <input class="form-control chat-user-filter" placeholder="Filter" type="text">
+
+                            <a href="#" class="usr" data-chat-id="cha1" data-chat-fname="Sadi" data-chat-lname="Orlaf" data-chat-status="busy" data-chat-alertmsg="Sadi Orlaf is in a meeting. Please do not disturb!" data-chat-alertshow="true" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/5.png' alt='Sadi Orlaf'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Sadi Orlaf&lt;/h3&gt;
+													&lt;p&gt;Marketing Executive&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Sadi Orlaf
+                            </a>
+
+                            <a href="#" class="usr" data-chat-id="cha2" data-chat-fname="Jessica" data-chat-lname="Dolof" data-chat-status="online" data-chat-alertmsg="" data-chat-alertshow="false" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/1.png' alt='Jessica Dolof'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Jessica Dolof&lt;/h3&gt;
+													&lt;p&gt;Sales Administrator&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Jessica Dolof
+                            </a>
+
+                            <a href="#" class="usr" data-chat-id="cha3" data-chat-fname="Zekarburg" data-chat-lname="Almandalie" data-chat-status="online" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/3.png' alt='Zekarburg Almandalie'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Zekarburg Almandalie&lt;/h3&gt;
+													&lt;p&gt;Sales Admin&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Zekarburg Almandalie
+                            </a>
+
+                            <a href="#" class="usr" data-chat-id="cha4" data-chat-fname="Barley" data-chat-lname="Krazurkth" data-chat-status="away" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/4.png' alt='Barley Krazurkth'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Barley Krazurkth&lt;/h3&gt;
+													&lt;p&gt;Sales Director&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Barley Krazurkth
+                            </a>
+
+                            <a href="#" class="usr offline" data-chat-id="cha5" data-chat-fname="Farhana" data-chat-lname="Amrin" data-chat-status="incognito" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/female.png' alt='Farhana Amrin'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Farhana Amrin&lt;/h3&gt;
+													&lt;p&gt;Support Admin &lt;small&gt;&lt;i class='fa fa-music'&gt;&lt;/i&gt; Playing Beethoven Classics&lt;/small&gt;&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Farhana Amrin (offline)
+                            </a>
+
+                            <a href="#" class="usr offline" data-chat-id="cha6" data-chat-fname="Lezley" data-chat-lname="Jacob" data-chat-status="incognito" data-rel="popover-hover" data-placement="right" data-html="true" data-content="
+											&lt;div class='usr-card'&gt;
+												&lt;img src='img/avatars/male.png' alt='Lezley Jacob'&gt;
+												&lt;div class='usr-card-content'&gt;
+													&lt;h3&gt;Lezley Jacob&lt;/h3&gt;
+													&lt;p&gt;Sales Director&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										" data-original-title="" title="">
+                                <i></i>Lezley Jacob (offline)
+                            </a>
+
+                            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/chat.html" class="btn btn-xs btn-default btn-block sa-chat-learnmore-btn">About the API</a>
+
+                        </div>
+                        <!-- END DISPLAY USERS -->
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <span class="minifyme" data-action="minifyMenu">
+				<i class="fa fa-arrow-circle-left hit"></i>
+			</span>
+
+</aside><!-- END NAVIGATION -->
+
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+    <!-- RIBBON -->
+    <div id="ribbon">
+
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-original-title="&lt;i class='text-warning fa fa-warning'&gt;&lt;/i&gt; Warning! This will reset all your widget settings." data-html="true">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+        <li>الرئيسية</li>
+        <li>Miscellaneous</li>
+        <li>Blank Page</li>
+    </ol>
+    <!-- end breadcrumb -->
+
+    <!-- You can also add more buttons to the
+    ribbon for further usability
+
+    Example below:
+
+    <span class="ribbon-button-alignment pull-right">
+    <span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+    <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+    <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+    </span> -->
+
+</div>    <!-- END RIBBON -->
+
+
+
+    <!-- MAIN CONTENT -->
+    <div id="content">
+
+        <!-- row -->
+      <div class="row">
+
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+
+            <!-- PAGE HEADER -->
+            <i class="fa-fw fa fa-home"></i>
+            خدمة الزبائن            <span>&gt;
+								التذاكر							</span>
+        </h1>
+    </div>
+    <!-- end col -->
+
+    <!-- right side of the page with the sparkline graphs -->
+    <!-- col -->
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+        <!-- sparks -->
+        <ul id="sparks">
+            <li class="sparks-info">
+                <h5> My Income <span class="txt-color-blue">$47,171</span></h5>
+                <div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm"><canvas style="display: inline-block; vertical-align: top; width: 89px; height: 26px;" width="89" height="26"></canvas></div>
+            </li>
+            <li class="sparks-info">
+                <h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>&nbsp;45%</span></h5>
+                <div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm"><canvas style="display: inline-block; vertical-align: top; width: 82px; height: 26px;" width="82" height="26"></canvas></div>
+            </li>
+            <li class="sparks-info">
+                <h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span></h5>
+                <div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm"><canvas style="display: inline-block; vertical-align: top; width: 82px; height: 26px;" width="82" height="26"></canvas></div>
+            </li>
+        </ul>
+        <!-- end sparks -->
+    </div>
+    <!-- end col -->
+
+</div>        <!-- end row -->
+
+        <!--
+            The ID "widget-grid" will start to initialize all widgets below
+            You do not need to use widgets if you dont want to. Simply remove
+            the <section></section> and you can use wells or panels instead
+            -->
+
+        <!-- widget grid -->
+        <div class="row">
+    <div class="col-sm-12">
+
+
+    </div>
+</div>
+<section id="widget-grid" class="">
+
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+
+            <div class="jarviswidget jarviswidget-color-red jarviswidget-sortable" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false" data-widget-attstyle="jarviswidget-color-red" role="widget">
+                <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+
+                -->
+                <header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu"><a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li><li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li><li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+                    <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+                    <h2>نموذج تذكرة دعم فني </h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+                <!-- widget div-->
+                <div role="content">
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <form id="ticket_form" action="http://127.0.0.1:8000/Dashboard/CustomerServices/New/Ticket" method="POST" name="ticket_form" class="smart-form" novalidate="novalidate">
+                            <header>
+                                تذكرة جديدة
+                            </header>
+                            <input name="customer_id" type="hidden">
+                            <input name="customer_name_h" type="hidden">
+                            <fieldset>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="input"> <i class="icon-append fa fa-user"></i>
+                                            <input name="customer_name" id="customer_name" placeholder="العميل" type="text">
+
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="input"> <i class="icon-append fa fa-phone"></i>
+                                            <input id="customer_mobile" name="customer_mobile" placeholder="محمول" type="text">
+                                        </label>
+                                    </section>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <section>
+                                    <label for="customer_issue" class="input">
+                                        <input name="customer_issue" id="issue" placeholder="وصف المشكلة" type="text">
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="textarea" for="customer_issue_details"> <i class="icon-append fa fa-comment"></i>
+                                        <textarea rows="5" name="customer_issue_details" placeholder="وصف دقيق للمشكلة"></textarea>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+                                        <textarea rows="5" name="expected_needs" placeholder="الاحتياجات المطلوبة"></textarea>
+                                    </label>
+                                </section>
+                            </fieldset>
+                            <fieldset>
+                                <section>
+                                    <label class="input">نوع التذكرة</label>
+                                    <div class="inline-group">
+                                        <label class="radio">
+                                            <input value="0" name="ticket_type" checked="checked" type="radio">
+                                            <i></i>تركيب جديد</label>
+                                        <label class="radio">
+                                            <input value="1" name="ticket_type" type="radio">
+                                            <i></i>صيانة</label>
+                                        <label class="radio">
+                                            <input value="2" name="ticket_type" type="radio">
+                                            <i></i>تركيب كاميرات</label>
+                                        <label class="radio">
+                                            <input value="3" name="ticket_type" type="radio">
+                                            <i></i>صيانة كاميرات</label>
+                                        <label class="radio">
+                                            <input value="4" name="ticket_type" type="radio">
+                                            <i></i>صيانة عامة</label>
+                                    </div>
+                                </section>
+                            </fieldset>
+                            <!--<fieldset>
+                                <div class="row">
+                                <section class="col col-6">
+                                    <label class="input"> <i class="icon-append fa fa-user"></i>
+                                        <input type="text" name="id" placeholder="رقم الفاتورة">
+                                    </label>
+                                </section>
+                                    <section class="col col-6">
+                                       <button class="btn btn-success">بحث عن فاتورة</button>
+                                    </section>
+                                </div>
+                            </fieldset>-->
+                            <fieldset>
+                                <section>
+                                    <label for="customer_talking_time" class="input">
+                                        وقت اتصال الزبون
+                                        <input name="customer_call_time" id="ctt" value="17 / 05 / 2018 05:26 " placeholder="وقت اتصال الزبون" type="text">
+                                    </label>
+                                </section>
+                            </fieldset>
+                            <fieldset>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <div class="form-group">
+                                            <label>التاريخ المطلوب</label>
+                                            <div class="input-group">
+                                                <input name="customer_wanted_date" placeholder="Select a date" class="form-control datepicker hasDatepicker" data-dateformat="dd/mm/yy" id="dp1526567183679" type="text">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="col col-6">
+                                        <div class="form-group">
+                                            <label>الساعة :</label>
+                                            <div class="input-group">
+                                                <input name="customer_wanted_time" placeholder="Select a Time" data-mask="99:99" class="form-control timepicker" type="text">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+
+
+                                <section>
+                                    <label for="customer_address" class="input">
+                                        <input name="customer_address" id="customer_address" placeholder="العنوان" type="text">
+                                    </label>
+                                </section>
+
+
+
+
+                                <section>
+                                    <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+                                        <textarea rows="5" name="customer_full_address" placeholder="العنوان مع التفاصيل "></textarea>
+                                    </label>
+                                </section>
+                            </fieldset>
+                            <footer>
+                                <input name="_token" value="ag9IKyZqXqHR3h0q1W19YQNwtm5PZ9bBWgTOEJX9" type="hidden">
+                                <button type="submit" class="btn btn-primary">
+                                    إضافة التذكرة
+                                </button>
+                            </footer>
+                        </form>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+
+        </article>
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget jarviswidget-color-orangeDark jarviswidget-sortable" id="wid-id-0" data-widget-editbutton="false" data-widget-attstyle="jarviswidget-color-orangeDark" role="widget">
+                <!-- widget options:
+                                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                                data-widget-colorbutton="false"
+                                data-widget-editbutton="false"
+                                data-widget-togglebutton="false"
+                                data-widget-deletebutton="false"
+                                data-widget-fullscreenbutton="false"
+                                data-widget-custombutton="false"
+                                data-widget-collapsed="true"
+                                data-widget-sortable="false"
+
+                -->
+                <header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu"><a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li><li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li><li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    <h2>تذاكر غير منفذة</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+                <!-- widget div-->
+                <div role="content">
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <div id="waiting_cst_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="dt-toolbar"><div class="col-xs-12 col-sm-6"><div id="waiting_cst_table_filter" class="dataTables_filter"><label>ابحث:<input class="form-control" placeholder="" aria-controls="waiting_cst_table" type="search"></label></div></div><div class="col-sm-6 col-xs-12 hidden-xs"><div class="dataTables_length" id="waiting_cst_table_length"><label>أظهر <select name="waiting_cst_table_length" aria-controls="waiting_cst_table" class="form-control input-sm"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> مدخلات</label></div></div></div><table id="waiting_cst_table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="waiting_cst_table_info" style="width: 100%;" width="100%">
+                            <thead>
+                                <tr role="row"><th data-hide="phone" class="sorting_asc" tabindex="0" aria-controls="waiting_cst_table" rowspan="1" colspan="1" style="width: 7.88333px;" aria-sort="ascending" aria-label="#: activate to sort column descending" width="1%">#</th><th data-class="expand" class="expand sorting" tabindex="0" aria-controls="waiting_cst_table" rowspan="1" colspan="1" style="width: 116.883px;" aria-label=" العميل: activate to sort column ascending"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> العميل</th><th data-hide="phone,tablet" class="sorting" tabindex="0" aria-controls="waiting_cst_table" rowspan="1" colspan="1" style="width: 121.883px;" aria-label=" تذكرة رقم: activate to sort column ascending"><i class="fa fa-fw fa-mobile text-muted hidden-md hidden-sm hidden-xs"></i> تذكرة رقم</th><th data-hide="phone,tablet" class="sorting" tabindex="0" aria-controls="waiting_cst_table" rowspan="1" colspan="1" style="width: 113.883px;" aria-label=" الوقت المطلوب: activate to sort column ascending"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> الوقت المطلوب</th><th data-hide="phone,tablet" class="sorting" tabindex="0" aria-controls="waiting_cst_table" rowspan="1" colspan="1" style="width: 76.8833px;" aria-label=" --: activate to sort column ascending"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> --</th></tr>
+                            </thead>
+                            <tbody id="TicketsWiatingTableContainer">
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                            <tr id="" role="row" class="odd">
+                                    <td class="sorting_1">16</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4004" href="#Show&amp;Customer=4004">شعبانش شقليه</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="16" data-ticket-no="CST-1-20180402-541" href="#Show&amp;Ticket=CST-1-20180402-541">CST-1-20180402-541</a></td>
+                                    <td>2018-04-25 01:04</td>
+                                    <td>
+                                <button type="button" data-ticket-id="16" data-ticket-no="CST-1-20180402-541" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="16" data-ticket-no="CST-1-20180402-541" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="even">
+                                    <td class="sorting_1">36</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4005" href="#Show&amp;Customer=4005">شعبان شقليه</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="36" data-ticket-no="CST-1-20180402-671" href="#Show&amp;Ticket=CST-1-20180402-671">CST-1-20180402-671</a></td>
+                                    <td>2018-04-25 01:04</td>
+                                    <td>
+                                <button type="button" data-ticket-id="36" data-ticket-no="CST-1-20180402-671" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="36" data-ticket-no="CST-1-20180402-671" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="odd">
+                                    <td class="sorting_1">37</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4005" href="#Show&amp;Customer=4005">شعبان شقليه</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="37" data-ticket-no="CST-1-20180402-402" href="#Show&amp;Ticket=CST-1-20180402-402">CST-1-20180402-402</a></td>
+                                    <td>2018-04-25 01:04</td>
+                                    <td>
+                                <button type="button" data-ticket-id="37" data-ticket-no="CST-1-20180402-402" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="37" data-ticket-no="CST-1-20180402-402" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="even">
+                                    <td class="sorting_1">40</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4000" href="#Show&amp;Customer=4000">عبدالله سالم حبوش</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="40" data-ticket-no="CST-1-20180402-304" href="#Show&amp;Ticket=CST-1-20180402-304">CST-1-20180402-304</a></td>
+                                    <td>2018-04-24 03:40</td>
+                                    <td>
+                                <button type="button" data-ticket-id="40" data-ticket-no="CST-1-20180402-304" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="40" data-ticket-no="CST-1-20180402-304" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="odd">
+                                    <td class="sorting_1">44</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4003" href="#Show&amp;Customer=4003">احمد فيصل عكيلة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="44" data-ticket-no="CST-1-20180402-968" href="#Show&amp;Ticket=CST-1-20180402-968">CST-1-20180402-968</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="44" data-ticket-no="CST-1-20180402-968" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="44" data-ticket-no="CST-1-20180402-968" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="even">
+                                    <td class="sorting_1">45</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4003" href="#Show&amp;Customer=4003">احمد فيصل عكيلة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="45" data-ticket-no="CST-1-20180402-774" href="#Show&amp;Ticket=CST-1-20180402-774">CST-1-20180402-774</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="45" data-ticket-no="CST-1-20180402-774" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="45" data-ticket-no="CST-1-20180402-774" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="odd">
+                                    <td class="sorting_1">46</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4003" href="#Show&amp;Customer=4003">احمد فيصل عكيلة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="46" data-ticket-no="CST-1-20180402-497" href="#Show&amp;Ticket=CST-1-20180402-497">CST-1-20180402-497</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="46" data-ticket-no="CST-1-20180402-497" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="46" data-ticket-no="CST-1-20180402-497" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="even">
+                                    <td class="sorting_1">47</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4003" href="#Show&amp;Customer=4003">احمد فيصل عكيلة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="47" data-ticket-no="CST-2-20180402-679" href="#Show&amp;Ticket=CST-2-20180402-679">CST-2-20180402-679</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="47" data-ticket-no="CST-2-20180402-679" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="47" data-ticket-no="CST-2-20180402-679" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="odd">
+                                    <td class="sorting_1">48</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4007" href="#Show&amp;Customer=4007">مهند حمادة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="48" data-ticket-no="CST-3-20180402-564" href="#Show&amp;Ticket=CST-3-20180402-564">CST-3-20180402-564</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="48" data-ticket-no="CST-3-20180402-564" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="48" data-ticket-no="CST-3-20180402-564" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr><tr id="" role="row" class="even">
+                                    <td class="sorting_1">49</td>
+                                    <td class=" expand"><a class="show-profile" data-ref="customer" data-customer-id="4007" href="#Show&amp;Customer=4007">مهند حمادة</a></td>
+                                    <td><a class="show-ticket" data-ref="ticket" data-ticket-id="49" data-ticket-no="CST-0-20180402-404" href="#Show&amp;Ticket=CST-0-20180402-404">CST-0-20180402-404</a></td>
+                                    <td>2018-04-24 03:34</td>
+                                    <td>
+                                <button type="button" data-ticket-id="49" data-ticket-no="CST-0-20180402-404" class="btn btn-labeled btn-success">  <i class="fa fa-legal"></i> </button>
+                                <button type="button" data-ticket-id="49" data-ticket-no="CST-0-20180402-404" class="btn btn-labeled btn-danger">   <i class="fa  fa-minus-square"></i> </button>
+                                    </td> 
+                                </tr></tbody>
+                        </table><div class="dt-toolbar-footer"><div class="col-sm-6 col-xs-12 hidden-xs"><div class="dataTables_info" id="waiting_cst_table_info" role="status" aria-live="polite">إظهار 1 إلى 10 من أصل 18 مدخل</div></div><div class="col-xs-12 col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="waiting_cst_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="waiting_cst_table_previous"><a href="#" aria-controls="waiting_cst_table" data-dt-idx="0" tabindex="0">السابق</a></li><li class="paginate_button active"><a href="#" aria-controls="waiting_cst_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="waiting_cst_table" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button next" id="waiting_cst_table_next"><a href="#" aria-controls="waiting_cst_table" data-dt-idx="3" tabindex="0">التالي</a></li></ul></div></div></div></div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+            <div class="jarviswidget jarviswidget-color-darken jarviswidget-sortable" id="wid-id-1" data-widget-editbutton="false" role="widget">
+                <!-- widget options:
+                                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                                data-widget-colorbutton="false"
+                                data-widget-editbutton="false"
+                                data-widget-togglebutton="false"
+                                data-widget-deletebutton="false"
+                                data-widget-fullscreenbutton="false"
+                                data-widget-custombutton="false"
+                                data-widget-collapsed="true"
+                                data-widget-sortable="false"
+
+                -->
+                <header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu"><a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li><li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li><li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                    <h2>تذاكر قيد التنفيذ</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+                <!-- widget div-->
+                <div role="content">
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+
+                        <table id="executing_tickets_table" class="table table-striped table-bordered table-hover" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-hide="phone" width="1%">#</th>
+                                    <th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> العميل</th>
+                                    <th data-hide="phone,tablet"><i class="fa fa-fw fa-mobile text-muted hidden-md hidden-sm hidden-xs"></i> تذكرة رقم</th>
+                                    <th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> الوقت المطلوب</th>
+                                    <th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> --</th>
+                                </tr>
+                            </thead>
+                            <tbody id="CustomersTableContainer">
+                                                                <tr id="">
+                                    <td>1</td>
+                                    <td>ابراهيم حبوش</td>
+                                    <td>(059) 678-8130</td>
+                                    <td>مقابل فندق الامل</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4000</td>
+                                    <td>عبدالله سالم حبوش</td>
+                                    <td>(056) 788-1305</td>
+                                    <td>مقابل فندق الامل aa</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4001</td>
+                                    <td>عبدالله حبوش</td>
+                                    <td>(056) 788-1305</td>
+                                    <td>مقابل فندق الامل a</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4002</td>
+                                    <td>عبدالله حبوش</td>
+                                    <td>(056) 788-1305</td>
+                                    <td>مقابل فندق الامل a</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4003</td>
+                                    <td>احمد فيصل عكيلة</td>
+                                    <td>(059) 837-7373</td>
+                                    <td>دوار ابو مازن</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4004</td>
+                                    <td>شعبانش شقليه</td>
+                                    <td>(234) 234-2343</td>
+                                    <td>تل الهوا</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4005</td>
+                                    <td>شعبان شقليه</td>
+                                    <td>(056) 772-4433</td>
+                                    <td>غزة</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4006</td>
+                                    <td>سالم طلال حبوش</td>
+                                    <td>(323) 423-4234</td>
+                                    <td>غزة</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4007</td>
+                                    <td>مهند حمادة</td>
+                                    <td>(342) 423-4234</td>
+                                    <td>التفاح</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4008</td>
+                                    <td>اسماعيل حبوش</td>
+                                    <td>(342) 343-4334</td>
+                                    <td>الميناء</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4009</td>
+                                    <td>مهند حمادة</td>
+                                    <td>(343) 442-3423</td>
+                                    <td>شسيشسي</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4010</td>
+                                    <td>سالم طلال حبوش</td>
+                                    <td>(423) 324-2342</td>
+                                    <td>asdfasd</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4011</td>
+                                    <td>الحمار مهند</td>
+                                    <td>(423) 423-4234</td>
+                                    <td>غزة</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                                <tr id="">
+                                    <td>4012</td>
+                                    <td>طلال</td>
+                                    <td>(056) 788-1302</td>
+                                    <td>غزة - الميناء</td>
+                                    <td><button class="btn"></button></td>
+                                </tr>
+                                                            </tbody>
+                        </table>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- Widget ID (each widget will need unique ID)-->
+
+            <!-- end widget -->
+
+        </article>
+    </div>
+
+</section>
+
+
+
+<div class="modal fade" id="customersModal" tabindex="-1" role="dialog" aria-labelledby="CustomersModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">الزبائن والعملاء</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="table-responsive">
+                    <a class="btn btn-success btn-xs" href="javascript:create_new_customer();">أضافة عميل</a>
+                    <div id="customers_list_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="dt-toolbar"><div class="col-xs-12 col-sm-6"><div id="customers_list_table_filter" class="dataTables_filter"><label>ابحث:<input class="form-control" placeholder="" aria-controls="customers_list_table" type="search"></label></div></div><div class="col-sm-6 col-xs-12 hidden-xs"><div class="dataTables_length" id="customers_list_table_length"><label>أظهر <select name="customers_list_table_length" aria-controls="customers_list_table" class="form-control input-sm"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> مدخلات</label></div></div></div><table class="table table-striped table-bordered table-hover dataTable no-footer" style="width: 100%;" id="customers_list_table" role="grid" aria-describedby="customers_list_table_info">
+                        <thead>
+                            <tr role="row"><th data-hide="phone" class="sorting_asc" tabindex="0" aria-controls="customers_list_table" rowspan="1" colspan="1" style="width: 0px;" aria-sort="ascending" aria-label="#: activate to sort column descending" width="1%">#</th><th data-class="expand" class="expand sorting" tabindex="0" aria-controls="customers_list_table" rowspan="1" colspan="1" style="width: 0px;" aria-label="العميل: activate to sort column ascending">العميل</th><th data-hide="phone,tablet" class="sorting" tabindex="0" aria-controls="customers_list_table" rowspan="1" colspan="1" style="width: 0px;" aria-label="محمول: activate to sort column ascending">محمول</th><th data-hide="phone,tablet" class="sorting" tabindex="0" aria-controls="customers_list_table" rowspan="1" colspan="1" style="width: 0px;" aria-label="العنوان: activate to sort column ascending">العنوان</th></tr>
+                        </thead>
+
+                        <tbody id="customers_table_tbody">
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    <tr data-customer-id="1" class="customers_table_row odd" role="row">
+                                <td data-customer-content="id" class="sorting_1">1<button type="radio" class="table_hidden_select" name="a[1]" active_table_tr_hover="1"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>ابراهيم حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(059) 678-8130</td><td data-customer-content="address">مقابل فندق الامل</td></tr><tr data-customer-id="4000" class="customers_table_row even" role="row">
+                                <td data-customer-content="id" class="sorting_1">4000<button type="radio" class="table_hidden_select" name="a[4000]" active_table_tr_hover="4000"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>عبدالله سالم حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(056) 788-1305</td><td data-customer-content="address">مقابل فندق الامل aa</td></tr><tr data-customer-id="4001" class="customers_table_row odd" role="row">
+                                <td data-customer-content="id" class="sorting_1">4001<button type="radio" class="table_hidden_select" name="a[4001]" active_table_tr_hover="4001"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>عبدالله حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(056) 788-1305</td><td data-customer-content="address">مقابل فندق الامل a</td></tr><tr data-customer-id="4002" class="customers_table_row even" role="row">
+                                <td data-customer-content="id" class="sorting_1">4002<button type="radio" class="table_hidden_select" name="a[4002]" active_table_tr_hover="4002"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>عبدالله حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(056) 788-1305</td><td data-customer-content="address">مقابل فندق الامل a</td></tr><tr data-customer-id="4003" class="customers_table_row odd" role="row">
+                                <td data-customer-content="id" class="sorting_1">4003<button type="radio" class="table_hidden_select" name="a[4003]" active_table_tr_hover="4003"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>احمد فيصل عكيلة</td>
+                                
+                                
+                            <td data-customer-content="mobile">(059) 837-7373</td><td data-customer-content="address">دوار ابو مازن</td></tr><tr data-customer-id="4004" class="customers_table_row even" role="row">
+                                <td data-customer-content="id" class="sorting_1">4004<button type="radio" class="table_hidden_select" name="a[4004]" active_table_tr_hover="4004"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>شعبانش شقليه</td>
+                                
+                                
+                            <td data-customer-content="mobile">(234) 234-2343</td><td data-customer-content="address">تل الهوا</td></tr><tr data-customer-id="4005" class="customers_table_row odd" role="row">
+                                <td data-customer-content="id" class="sorting_1">4005<button type="radio" class="table_hidden_select" name="a[4005]" active_table_tr_hover="4005"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>شعبان شقليه</td>
+                                
+                                
+                            <td data-customer-content="mobile">(056) 772-4433</td><td data-customer-content="address">غزة</td></tr><tr data-customer-id="4006" class="customers_table_row even" role="row">
+                                <td data-customer-content="id" class="sorting_1">4006<button type="radio" class="table_hidden_select" name="a[4006]" active_table_tr_hover="4006"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>سالم طلال حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(323) 423-4234</td><td data-customer-content="address">غزة</td></tr><tr data-customer-id="4007" class="customers_table_row odd" role="row">
+                                <td data-customer-content="id" class="sorting_1">4007<button type="radio" class="table_hidden_select" name="a[4007]" active_table_tr_hover="4007"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>مهند حمادة</td>
+                                
+                                
+                            <td data-customer-content="mobile">(342) 423-4234</td><td data-customer-content="address">التفاح</td></tr><tr data-customer-id="4008" class="customers_table_row even" role="row">
+                                <td data-customer-content="id" class="sorting_1">4008<button type="radio" class="table_hidden_select" name="a[4008]" active_table_tr_hover="4008"></button>
+                                </td>
+                                <td data-customer-content="name" class=" expand"><span class="responsiveExpander"></span>اسماعيل حبوش</td>
+                                
+                                
+                            <td data-customer-content="mobile">(342) 343-4334</td><td data-customer-content="address">الميناء</td></tr></tbody>
+                    </table><div class="dt-toolbar-footer"><div class="col-sm-6 col-xs-12 hidden-xs"><div class="dataTables_info" id="customers_list_table_info" role="status" aria-live="polite">إظهار 1 إلى 10 من أصل 14 مدخل</div></div><div class="col-xs-12 col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="customers_list_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="customers_list_table_previous"><a href="#" aria-controls="customers_list_table" data-dt-idx="0" tabindex="0">السابق</a></li><li class="paginate_button active"><a href="#" aria-controls="customers_list_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="customers_list_table" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button next" id="customers_list_table_next"><a href="#" aria-controls="customers_list_table" data-dt-idx="3" tabindex="0">التالي</a></li></ul></div></div></div></div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary">
+                    Post Article
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="create_customer_modal" tabindex="-1" role="dialog" aria-labelledby="CreateCustomerModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">الزبائن والعملاء</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="customer_form" action="http://127.0.0.1:8000/Dashboard/Customers/Add_Customer/JSON" data-form-type="add" method="post" name="customer_form" class="smart-form" novalidate="novalidate">
+                    <header id="form_header">
+                        أضافة عميل
+                    </header>
+                    <input name="customer_id" data-customer-id="" value="" type="hidden">
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-user"></i>
+                                    <input name="name" placeholder="الإسم" type="text">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-phone"></i>
+                                    <input name="mobile" data-mask="(999) 999-9999" placeholder="محمول" type="text">
+                                </label>
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+                                    <input name="email" placeholder="بريد الكتروني" type="email">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-phone"></i>
+                                    <input name="phone" placeholder="هاتف" data-mask="(999)9999-9999" type="tel">
+                                </label>
+                            </section>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+
+
+                        <section>
+                            <label for="address2" class="input">
+                                <input name="address" id="address2" placeholder="العنوان" type="text">
+                            </label>
+                        </section>
+
+
+
+
+                        <section>
+                            <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+                                <textarea rows="5" name="address_full" placeholder="العنوان مع التفاصيل "></textarea>
+                            </label>
+                        </section>
+                    </fieldset>
+                    <input name="_token" value="ag9IKyZqXqHR3h0q1W19YQNwtm5PZ9bBWgTOEJX9" type="hidden">
+
+            </form></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button name="form_btn" type="submit" class="btn btn-primary">
+                    أضافة عميل
+                </button>
+
+            </div>
+            
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="TicketModal" tabindex="-1" role="dialog" aria-labelledby="TicketModal" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="TicketModalHeader">تذكرة دعم فني  <span class="label label-warning" data-content="ticket-no">CST-1-20180402-402</span></h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover table-condensed" cellspacing="0" cellpadding="5" border="0">
+                    <tbody>
+                        <tr>
+                            <td style="width:100px">اسم العميل</td>
+                            <td><a id="TicketCustomerName" class="show-profile" data-ref="customer" data-customer-id="4005" href="#Show&amp;Customer=4005">شعبان شقليه</a></td>
+                        </tr>
+                        <tr><td style="width: 30%;">الوقت والتاريخ المطلوب</td><td><strong class="ticket_modal" data-content="requierd-time">2018-04-25 01:04</strong></td>
+                        </tr>
+                        <tr>
+                            <td>وصف المشكلة</td><td class="ticket_modal" data-content="customer-issue">عيار دش</td>
+                        </tr>
+                        <tr>
+                            <td>عنوان العميل</td><td>
+                                <p class="ticket_modal" data-content="customer-address">غزة</p>
+                                <p class="ticket_modal" data-content="customer-address-full">الطابق الثاني</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>--</td><td>
+                                <label class="label ticket_modal label-warning" data-content="ticket_status">0</label> 
+                                <button type="button" data-link="execute-ticket" class="ticket_modal btn btn-labeled btn-success" data-ticket-id="37" data-ticket-no="CST-1-20180402-402"> 
+                                <span class="btn-label"><i class="fa fa-legal"></i></span>
+                                
+                                تنفيذ التذكرة</button>
+                                <button type="button" data-link="close-ticket" class="ticket_modal btn btn-labeled btn-danger" data-ticket-id="37" data-ticket-no="CST-1-20180402-402">
+                                 <span class="btn-label"><i class="fa fa-minus-square"></i></span>
+                                إغلاق التذكرة</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        Post Article
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+    <div class="modal fade" id="CustomerProfileModal" tabindex="-1" role="dialog" aria-labelledby="CustomerProfileModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">الزبائن والعملاء</h4>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="row">
+
+
+                        <div class="well well-sm">
+
+                            <div class="well well-light well-sm no-margin no-padding">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <div id="myCarousel" class="carousel fade profile-carousel">
+                                            <div class="air air-bottom-right padding-10">
+                                                <a href="javascript:void(0);" class="btn txt-color-white bg-color-teal btn-sm"><i class="fa fa-check"></i> Follow</a>&nbsp; <a href="javascript:void(0);" class="btn txt-color-white bg-color-pinkDark btn-sm"><i class="fa fa-link"></i> Connect</a>
+                                            </div>
+                                            <div class="air air-top-left padding-10">
+                                                <h4 class="txt-color-white font-md">Jan 1, 2014</h4>
+                                            </div>
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <!-- Slide 1 -->
+                                                <div class="item active">
+                                                    <img src="tickets_files/s1.jpg" alt="demo user">
+                                                </div>
+                                                <!-- Slide 2 -->
+                                                <div class="item">
+                                                    <img src="tickets_files/s2.jpg" alt="demo user">
+                                                </div>
+                                                <!-- Slide 3 -->
+                                                <div class="item">
+                                                    <img src="tickets_files/m3.jpg" alt="demo user">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+
+                                        <div class="row">
+
+                                            <div class="col-sm-3 profile-pic">
+                                                <img class="Customer-Profile" data-content="avatar" src="" alt="">
+                                                <div class="padding-10">
+                                                    <h4 class="font-md"><strong class="Customer-Profile" data-content="TicketsCount"></strong>
+                                                        <br>
+                                                        <small>تذاكر سابقة</small></h4>
+                                                    <br>
+                                                    <h4 class="font-md"><strong>419</strong>
+                                                        <br>
+                                                        <small>فواتير سابقة</small></h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h1><span class="semi-bold Customer-Profile" data-content="CustomerName"></span>
+                                                    <br>
+                                                    <small class="Customer-Profile" data-content="CustomerRatio"> </small></h1>
+
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <p class="text-muted">
+                                                            <i class="fa fa-phone"></i>&nbsp;&nbsp;<span class="txt-color-darken Customer-Profile" data-content="mobile"></span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="text-muted">
+                                                            <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a class="Customer-Profile" data-content="email"></a>
+                                                        </p>
+                                                    </li>
+
+                                                </ul>
+                                                <br>
+                                                <p class="font-md">
+                                                    <i class="Customer-Profile" data-content="address"></i>
+                                                </p>
+                                                <p class="Customer-Profile" data-content="full_address"> </p>
+                                                <br>
+                                                <a class="Customer-Profile btn btn-default btn-xs" data-content="customer_sms"><i class="fa fa-envelope-o"></i>ارسال رسالة SMS</a>
+                                                <br>
+                                                <br>
+
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h1><small>قريباً</small></h1>
+                                                <ul class="list-inline friends-list">
+                                                    <li><img src="tickets_files/1.png" alt="friend-1">
+                                                    </li>
+                                                    <li><img src="tickets_files/2.png" alt="friend-2">
+                                                    </li>
+                                                    <li><img src="tickets_files/3.png" alt="friend-3">
+                                                    </li>
+                                                    <li><img src="tickets_files/4.png" alt="friend-4">
+                                                    </li>
+                                                    <li><img src="tickets_files/5.png" alt="friend-5">
+                                                    </li>
+                                                    <li><img src="tickets_files/male.png" alt="friend-6">
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">413 more</a>
+                                                    </li>
+                                                </ul>
+
+                                                <h1><small>قريباً</small></h1>
+                                                <ul class="list-inline friends-list">
+                                                    <li><img src="tickets_files/male.png" alt="friend-1">
+                                                    </li>
+                                                    <li><img src="tickets_files/female.png" alt="friend-2">
+                                                    </li>
+                                                    <li><img src="tickets_files/female.png" alt="friend-3">
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <hr>
+
+                                        <div class="padding-10">
+
+                                            <ul class="nav nav-tabs tabs-pull-right">
+                                                <li class="active">
+                                                    <a href="#a1" data-toggle="tab">آخر الفعاليات</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#a2" data-toggle="tab">نشاطات حالية</a>
+                                                </li>
+                                                <li class="pull-left">
+                                                    <span class="margin-top-10 display-inline"><i class="fa fa-rss text-success"></i> Activity</span>
+                                                </li>
+                                            </ul>
+
+                                            <div class="tab-content padding-top-10">
+                                                <div class="tab-pane fade in active" id="a1">
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-2 col-sm-1">
+                                                            <time datetime="2014-09-20" class="icon">
+                                                                <strong>Jan</strong>
+                                                                <span>10</span>
+                                                            </time>
+                                                        </div>
+
+                                                        <div class="col-xs-10 col-sm-11">
+                                                            <h6 class="no-margin"><a href="javascript:void(0);">Allice in Wonderland</a></h6>
+                                                            <p>
+                                                                Etiam 
+ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi Nam eget 
+dui.
+                                                                Etiam 
+rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam 
+semper libero,
+                                                                sit amet
+ adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+
+                                                            <hr>
+
+                                                        </div>
+
+
+
+                                                        <div class="col-sm-12">
+
+                                                            <br>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade" id="a2">
+
+                                                    <div class="alert alert-info fade in">
+                                                        <button class="close" data-dismiss="alert">
+                                                            ×
+                                                        </button>
+                                                        <i class="fa-fw fa fa-info"></i>
+                                                        <strong>51 new members </strong>joined today!
+                                                    </div>
+
+
+                                                    <div class="text-center">
+                                                        <ul class="pagination pagination-sm">
+                                                            <li class="disabled">
+                                                                <a href="javascript:void(0);">Prev</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="javascript:void(0);">1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);">2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);">3</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);">...</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);">99</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);">Next</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                </div><!-- end tab -->
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- end row -->
+
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Post Article
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+    
+
+            <!-- end widget grid -->
+
+    </div>
+    <!-- END MAIN CONTENT -->
+
+<div class="demo"><span id="demo-setting"><i class="fa fa-cogs fa-spin txt-color-blueDark"></i></span> <form><legend class="no-padding margin-bottom-10">Layout Options</legend><section><label><input name="subscription" id="smart-fixed-header" class="checkbox style-0" type="checkbox"><span>Fixed Header</span></label><label><input name="terms" id="smart-fixed-navigation" class="checkbox style-0" type="checkbox"><span>Fixed Navigation</span></label><label><input name="terms" id="smart-fixed-ribbon" class="checkbox style-0" type="checkbox"><span>Fixed Ribbon</span></label><label><input name="terms" id="smart-fixed-footer" class="checkbox style-0" type="checkbox"><span>Fixed Footer</span></label><label><input name="terms" id="smart-fixed-container" class="checkbox style-0" type="checkbox"><span>Inside <b>.container</b></span></label><label style="display:block;"><input name="terms" id="smart-rtl" class="checkbox style-0" type="checkbox"><span>RTL Support</span></label><label style="display:block;"><input id="smart-topmenu" class="checkbox style-0" type="checkbox"><span>Menu on <b>top</b></span></label> <label style="display:block;"><input id="colorblind-friendly" class="checkbox style-0" type="checkbox"><span>For Colorblind <div class="font-xs text-right">(experimental)</div></span></label><span id="smart-bgimages" style="display: none;"></span></section><section><h6 class="margin-top-10 semi-bold margin-bottom-5">Clear Localstorage</h6><a href="javascript:void(0);" class="btn btn-xs btn-block btn-primary" id="reset-smart-widget"><i class="fa fa-refresh"></i> Factory Reset</a></section> <h6 class="margin-top-10 semi-bold margin-bottom-5">SmartAdmin Skins</h6><section id="smart-styles"><a href="javascript:void(0);" id="smart-style-0" data-skinlogo="img/logo.png" class="btn btn-block btn-xs txt-color-white margin-right-5" style="background-color:#4E463F;"><i class="fa fa-check fa-fw" id="skin-checked"></i>Smart Default</a><a href="javascript:void(0);" id="smart-style-1" data-skinlogo="img/logo-white.png" class="btn btn-block btn-xs txt-color-white" style="background:#3A4558;">Dark Elegance</a><a href="javascript:void(0);" id="smart-style-2" data-skinlogo="img/logo-blue.png" class="btn btn-xs btn-block txt-color-darken margin-top-5" style="background:#fff;">Ultra Light</a><a href="javascript:void(0);" id="smart-style-3" data-skinlogo="img/logo-pale.png" class="btn btn-xs btn-block txt-color-white margin-top-5" style="background:#f78c40">Google Skin</a><a href="javascript:void(0);" id="smart-style-4" data-skinlogo="img/logo-pale.png" class="btn btn-xs btn-block txt-color-white margin-top-5" style="background: #bbc0cf; border: 1px solid #59779E; color: #17273D !important;">PixelSmash</a> <a href="javascript:void(0);" id="smart-style-5" data-skinlogo="img/logo-pale.png" class="btn btn-xs btn-block txt-color-white margin-top-5" style="background: rgba(153, 179, 204, 0.2); border: 1px solid rgba(121, 161, 221, 0.8); color: #17273D !important;">Glass </a><a href="javascript:void(0);" id="smart-style-6" data-skinlogo="img/logo-pale.png" class="btn btn-xs btn-block txt-color-white margin-top-6" style="background: #2196F3; border: 1px solid rgba(0, 0, 0, 0.3); color: #FFF !important;">MaterialDesign <sup>beta</sup> </a></section></form> </div></div>
+<!-- END MAIN PANEL -->
+
+<!-- PAGE FOOTER -->
+<div class="page-footer">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <span class="txt-color-white">SmartAdmin 1.9.0 <span class="hidden-xs"> - Web Application Framework</span> © 2017-2019</span>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 text-right hidden-xs">
+            <div class="txt-color-white inline-block">
+                <i class="txt-color-blueLight hidden-mobile">Last account activity <i class="fa fa-clock-o"></i> <strong>52 mins ago &nbsp;</strong> </i>
+                <div class="btn-group dropup">
+                    <button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
+                        <i class="fa fa-link"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right text-left">
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Download Progress</p>
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Server Load</p>
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span></p>
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <button class="btn btn-block btn-default">refresh</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- END PAGE FOOTER -->
+
+<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+Note: These tiles are completely responsive,
+you can add as many as you like
+-->
+<div id="shortcut">
+    <ul>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/Dashboard/CustomerServices/profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+        </li>
+    </ul>
+</div><!-- END SHORTCUT AREA -->
+
+<!--================================================== -->
+
+<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+<script type="text/javascript" async="" src="tickets_files/ga.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;: true }" src="tickets_files/pace.js"></script>
+
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+<script src="tickets_files/jquery_003.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/assets/js/libs/jquery-3.2.1.min.js"><\/script>');
+    }
+</script>
+
+<script src="tickets_files/jquery-ui.js"></script>
+<script>
+    if (!window.jQuery.ui) {
+        document.write('<script src="/assets/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+    }
+</script>
+
+<!-- IMPORTANT: APP CONFIG -->
+<script src="tickets_files/app_002.js"></script>
+
+<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+<script src="tickets_files/jquery.js"></script>
+
+<!-- BOOTSTRAP JS -->
+<script src="tickets_files/bootstrap.js"></script>
+
+<!-- CUSTOM NOTIFICATION -->
+<script src="tickets_files/SmartNotification.js"></script>
+
+<!-- JARVIS WIDGETS -->
+<script src="tickets_files/jarvis.js"></script>
+
+<!-- EASY PIE CHARTS -->
+<script src="tickets_files/jquery_004.js"></script>
+
+<!-- SPARKLINES -->
+<script src="tickets_files/jquery_002.js"></script>
+
+<!-- JQUERY VALIDATE -->
+<script src="tickets_files/jquery_006.js"></script>
+
+<!-- JQUERY MASKED INPUT -->
+<script src="tickets_files/jquery_007.js"></script>
+
+<!-- JQUERY SELECT2 INPUT -->
+<script src="tickets_files/select2.js"></script>
+
+<!-- JQUERY UI + Bootstrap Slider -->
+<script src="tickets_files/bootstrap-slider.js"></script>
+
+<!-- browser msie issue fix -->
+<script src="tickets_files/jquery_005.js"></script>
+
+<!-- FastClick: For mobile devices -->
+<script src="tickets_files/fastclick.js"></script>
+
+<!--[if IE 8]>
+
+<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+<![endif]-->
+
+<!-- Demo purpose only -->
+<script src="tickets_files/demo.js"></script>
+
+<!-- MAIN APP JS FILE -->
+<script src="tickets_files/app.js"></script>
+
+<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+<!-- Voice command : plugin -->
+<script src="tickets_files/voicecommand.js"></script>
+<script src="tickets_files/jarvis.js"></script>
+
+<!-- SmartChat UI : plugin -->
+<script src="tickets_files/smart.js"></script>
+<script src="tickets_files/smart_002.js"></script>
+
+
+<script>
+
+    $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        /* DO NOT REMOVE : GLOBAL FUNCTIONS!
+         *
+         * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
+         *
+         * // activate tooltips
+         * $("[rel=tooltip]").tooltip();
+         *
+         * // activate popovers
+         * $("[rel=popover]").popover();
+         *
+         * // activate popovers with hover states
+         * $("[rel=popover-hover]").popover({ trigger: "hover" });
+         *
+         * // activate inline charts
+         * runAllCharts();
+         *
+         * // setup widgets
+         * setup_widgets_desktop();
+         *
+         * // run form elements
+         * runAllForms();
+         *
+         ********************************
+         *
+         * pageSetUp() is needed whenever you load a page.
+         * It initializes and checks for all basic elements of the page
+         * and makes rendering easier.
+         *
+         */
+        setup_widgets_desktop();
+        pageSetUp();
+
+        /*
+         * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
+         * eg alert("my home function");
+         *
+         * var pagefunction = function() {
+         *   ...
+         * }
+         * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
+         *
+         * TO LOAD A SCRIPT:
+         * var pagefunction = function (){
+         *  loadScript(".../plugin.js", run_after_loaded);
+         * }
+         *
+         * OR
+         *
+         * loadScript(".../plugin.js", run_after_loaded);
+         */
+
+    })
+
+</script>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script><script src="tickets_files/jquery_008.js"></script>
+<script src="tickets_files/dataTables_003.js"></script>
+<script src="tickets_files/dataTables.js"></script>
+<script src="tickets_files/dataTables_002.js"></script>
+<script src="tickets_files/datatables.js"></script>
+<script src="tickets_files/bootstrap-tagsinput.js"></script>
+<script src="tickets_files/clockpicker.js"></script>
+<script src="tickets_files/customers.js"></script>
+<script src="tickets_files/customer_service.js"></script>
+<script>
+    var _CP = function (val) {
+        var PS = '.Customer-Profile';//Profile Selector
+        var CS = 'data-content';//Content Selector
+        return PS + "[" + CS + "=" + val + "]";
+    };
+    $(document).ready(function () {
+        $(function () {
+            $("#ctt").val('17 / 05 / 2018 05:26 ');
+            //  $('#datetimepicker4').datetimepicker();
+        });
+
+        var __LoadProfiles = function () {
+            $(" a.show-profile[data-ref=customer]").on('click', function (e) {
+                e.preventDefault(e);
+                var customer_id = $(this).attr('data-customer-id');
+                var ajax = customer_profile.load(customer_id);
+                ajax.done(function (res) {
+                    customer_profile.fill("#CustomerProfileModal", res)
+                });
+                $("#CustomerProfileModal").modal('show');
+            });
+        };
+        var __CustomerServicesTickets = function () {
+            $("a.show-ticket[data-ref=ticket]").on('click', function (e) {
+                e.preventDefault(e);
+
+                var ticket_id = $(this).attr('data-ticket-id');
+                var ticket_no = $(this).attr('data-ticket-no');
+
+                var ajax = customer_tickets.get({no: ticket_no, id: ticket_id});
+                ajax.done(function (res) {
+                    customer_tickets.fillModal("#TicketModal", res)
+                });
+                $("#TicketModal").modal('show');
+            });
+        };
+        var responsiveHelper_dt_basic = undefined;
+        var responsiveHelper_datatable_fixed_column = undefined;
+        var responsiveHelper_datatable_col_reorder = undefined;
+        var responsiveHelper_datatable_tabletools = undefined;
+
+        var breakpointDefinition = {
+            tablet: 1024,
+            phone: 480
+        };
+
+        var waiting_cst_table = $('#waiting_cst_table').DataTable({
+            "buttons": [
+                'copy', 'excel', 'pdf'
+            ],
+            "language": {
+                "url": "/assets/js/lang/Arabic.json",
+            },
+
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>" +
+                    "t" +
+                    "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+            "autoWidth": true,
+            "oLanguage": {
+                "sUrl": "/assets/js/lang/Arabic.json",
+                "sSearch": '<span id="search_span" class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+            }
+        });
+
+        var customers = $('#customers_list_table').DataTable({
+            "language": {
+                "url": "/assets/js/lang/Arabic.json",
+            },
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>" +
+                    "t" +
+                    "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+            "autoWidth": true,
+            "oLanguage": {
+                "sUrl": "/assets/js/lang/Arabic.json",
+                "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+            },
+            "preDrawCallback": function () {
+                // Initialize the responsive datatables helper once.
+                if (!responsiveHelper_dt_basic) {
+                    responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#customers_list_table'), breakpointDefinition);
+                }
+            },
+            "rowCallback": function (nRow) {
+                responsiveHelper_dt_basic.createExpandIcon(nRow);
+            },
+            "drawCallback": function (oSettings) {
+                responsiveHelper_dt_basic.respond();
+            }
+        });
+        try {
+            __CustomerService();
+            __AsignCustomerToId();
+            __makeCustomersTableTabable();
+            __CST_Form(ticket_form, waiting_cst_table);
+            __LoadProfiles();
+            __CustomerServicesTickets();
+        } catch (e) {
+            console.log(e);
+        }
+    });
+</script>
+
+
+
+<div id="divSmallBoxes"></div><div id="divMiniIcons"></div><div id="divbigBoxes"></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>

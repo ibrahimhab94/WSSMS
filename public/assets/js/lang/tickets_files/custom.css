@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraUltraLight.woff") format("woff");
+    font-weight: 100;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraThin.woff") format("woff");
+    font-weight: 200;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraLight.woff") format("woff");
+    font-weight: 300;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraNormal.woff") format("woff");
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraMedium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraBold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraHeavy.woff") format("woff");
+    font-weight: 800;
+    font-style: normal; }
+@font-face {
+    font-family: 'Swissra';
+    src: url("../fonts/swissra/SwissraBlack.woff") format("woff");
+    font-weight: 900;
+    font-style: normal; }
+a,li,p,h1,h2,h3,h4,h5,h6,th,td,input,button,header,label,textarea,span,div{
+    font-family: "Open Sans",Swissra,Arial,Helvetica,Sans-Serif !important;
+
+}
+.table_hidden_select{
+    opacity: 0;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    border: none 0px;
+}
+.table_hidden_select:focus{
+
+}
+.active_table_tr_hover{
+    background-color: beige !important;
+}
