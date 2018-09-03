@@ -38,6 +38,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="active open">
+                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">الحسابات</span></a>
+                <ul>
+                    <li class="active">
+                        <a href="{{route('accounts_tree')}}" title="Dashboard"><span class="menu-item-parent">شجرة الحسابات</span></a>
+                    </li>
+                    <li>
+                        <a href="dashboard-marketing.html" title="Dashboard"><span class="menu-item-parent">Marketing Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="">
                 <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">خدمة الزبائن</span></a>

@@ -185,13 +185,14 @@ var customer_tickets = {
         return ajax;
     },
     fillModal: function (modal, data) {
+        console.log(data);
         $(modal + " #TicketModalHeader span[data-content=ticket-no]").text(data.ticket.ticket_no);
         $(modal + " a#TicketCustomerName").attr('data-customer-id', data.customer.id).attr('href', '#Show&Customer=' + data.customer.id).text(data.customer.name);
         $(modal + " .ticket_modal[data-content=requierd-time]").text(data.ticket.customer_needed_time);
         $(modal + " .ticket_modal[data-content=customer-issue]").text(data.ticket.customer_issue);
         $(modal + " .ticket_modal[data-content=customer-address]").text(data.ticket.customer_address);
         $(modal + " .ticket_modal[data-content=customer-address-full]").text(data.ticket.customer_full_address);
-        $(modal + " .ticket_modal[data-content=ticket_status]").addClass('label-warning').text(data.ticket_status);
+        $(modal + " .ticket_modal[data-content=ticket_status]").addClass('label-warning').text(data.ticket_status_text);
         $(modal + " button.ticket_modal[data-link=execute-ticket]").attr('data-ticket-id',data.ticket.id);
         $(modal + " button.ticket_modal[data-link=execute-ticket]").attr('data-ticket-no',data.ticket.ticket_no);
         $(modal + " button.ticket_modal[data-link=close-ticket]").attr('data-ticket-id',data.ticket.id);

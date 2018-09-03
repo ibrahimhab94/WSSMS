@@ -26,6 +26,13 @@ Route::post('/Dashboard/CustomerServices/Ticket/ChangeState','CustomerService@ch
 Route::post('/Dashboard/CustomerServices/New/Ticket','CustomerService@insert')->name('submit_cs_ticket');
 Route::post('/Dashboard/CustomerService/Customer/Profile/','CustomerService@profile')->name('get_customer_profile');
 Route::post('/Dashboard/CustomerService/Customer/Ticket/','CustomerService@getTicketData')->name('get_ticket_data');
+Route::post('/Dashboard/CustomerService/Customer/Ticket/GET_TICKET_STATE','CustomerService@getTicketStateView')->name('get_ticket_state');
 
 Route::get('/Dashboard/Employees/View','CustomerService@listEmployees')->name('get_employees');
 Route::get('/Dashboard/Employees/GET','CustomerService@getEmployees')->name('get_employees_ajax');
+
+
+// ACCOUNTING ROUTE
+Route::prefix('/Dashboard/Accounting/')->group(function () {
+    Route::get('Accounts/Tree','Accounting@tree')->name('accounts_tree');
+});

@@ -185,6 +185,7 @@ var customer_tickets = {
         return ajax;
     },
     fillModal: function (modal, data) {
+        console.log(data);
         $(modal + " #TicketModalHeader span[data-content=ticket-no]").text(data.ticket.ticket_no);
         $(modal + " a#TicketCustomerName").attr('data-customer-id', data.customer.id).attr('href', '#Show&Customer=' + data.customer.id).text(data.customer.name);
         $(modal + " .ticket_modal[data-content=requierd-time]").text(data.ticket.customer_needed_time);

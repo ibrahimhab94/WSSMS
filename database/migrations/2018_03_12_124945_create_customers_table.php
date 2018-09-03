@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('alternative_mobile');
 			$table->string('phone');
 			$table->string('address')->nullable();
+			$table->string('full_address')->nullable();
 		});
 	}
 

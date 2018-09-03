@@ -26,8 +26,8 @@ class CustomerServiceHelper
     private $_states =  [
         0=>['key'=>0,'next_state'=>1,'state'=>'unconfirmed'],
         1=>['key'=>1,'next_state'=>4,'state'=>'waiting'],
-        2=>['key'=>2,'next_state'=>0,'state'=>'edited'],
-        3=>['key'=>3,'next_state'=>0,'state'=>'changed'],
+        2=>['key'=>2,'next_state'=>1,'state'=>'edited'],
+        3=>['key'=>3,'next_state'=>1,'state'=>'changed'],
         4=>['key'=>4,'next_state'=>5,'state'=>'running'],
         5=>['key'=>5,'next_state'=>6,'state'=>'wait_review'],
         6=>['key'=>6,'next_state'=>7,'state'=>'wait_rate'],

@@ -87,7 +87,8 @@ class CustomerService extends Controller {
         return [
             'ticket' => $ticket_data,
            'customer'=>$customer_data,
-            'ticket_status'=>$this->csh->getTicketStatus($ticket_data)
+            'ticket_status'=>$this->csh->getTicketStatus($ticket_data),
+            'ticket_status_text'=>__('ar.customerservice.ticket_status.'.$this->csh->getTicketStatus($ticket_data))
         ];
     }
 
@@ -108,6 +109,12 @@ class CustomerService extends Controller {
       ]);
       return $data;
     }
+    public function getTicketStateView(Request $r){
+        $location = $r->header()['referer'][0];
+        $location = explode('/',$location);
+        $location = last($location);
+        return $location;
+    }
     public function changeTicketState(Request $r){
         $t_id = $r->input('ticket_id');
         $user_state =  $r->input('next_state',null);
@@ -118,9 +125,6 @@ class CustomerService extends Controller {
         else $next_state = $user_state;
         $_t->update(['status'=>$next_state['key']]);
         return ['old_state'=>$current_state,'new_state'=>$next_state];
-    }
-    public function execu(){
-
     }
     public function listEmployees(){
         return $this->v('dashboard.customer_service.employees');

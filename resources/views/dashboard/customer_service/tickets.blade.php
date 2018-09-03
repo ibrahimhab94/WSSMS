@@ -599,7 +599,10 @@
                         </tr>
                         <tr>
                             <td>{{__('ar.options')}}</td><td>
-                                <label class="label ticket_modal" data-content="ticket_status"></label> 
+                                <label class="label ticket_modal" data-content="ticket_status"></label>
+                                <div class="ticket_modal" data-contnet=ticket-state>
+                                    
+                                </div>
                                 <button type="button" data-link=execute-ticket class="ticket_modal btn btn-labeled btn-success"> 
                                 <span class="btn-label"><i class="fa fa-legal"></i></span>
                                 
