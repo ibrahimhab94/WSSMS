@@ -128,51 +128,53 @@
                 <h4 class="modal-title" id="TicketModalHeader">{{__('ar.accounts.add_account')}} <span class="label label-warning" data-content="ticket-no"></span></h4>
             </div>
             <div class="modal-body">
-                <table cellpadding="5" cellspacing="0" border="0" class="table table-hover table-condensed">
-                    <tbody>
-                    <tr>
-                        <td style="width:100px">{{__('ar.customerservice.ticket.customer_name')}}</td>
-                        <td><a id="TicketCustomerName" class="show-profile" data-ref="customer" data-customer-id="" href=""></a></td>
-                    </tr>
-                    <tr><td style="width: 30%;">{{__('ar.customerservice.requierd_time')}}</td><td><strong class="ticket_modal" data-content="requierd-time"></strong></td>
-                    </tr>
-                    <tr>
-                        <td>{{__('ar.customerservice.customer_issue')}}</td><td class="ticket_modal" data-content="customer-issue"> </td>
-                    </tr>
-                    <tr>
-                        <td>{{__('ar.customerservice.customer_full_address')}}</td><td>
-                            <p class="ticket_modal" data-content="customer-address"></p>
-                            <p class="ticket_modal" data-content="customer-address-full"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{{__('ar.options')}}</td><td>
-                            <label class="label ticket_modal" data-content="ticket_status"></label>
-                            <div class="ticket_modal" data-contnet=ticket-state>
+                <form id="accounts_form" data-form-type="add" method="post" name="accounts_form" class="smart-form" data-href="{{route('add_accounts_post')}}" novalidate="novalidate">
 
-                            </div>
-                            <button type="button" data-link=execute-ticket class="ticket_modal btn btn-labeled btn-success">
-                                <span class="btn-label"><i class="fa fa-legal"></i></span>
+                    <input type="hidden" name="account_id" data-customer-id="" value=""/>
+                    <fieldset>
+                        <section>
+                            <label for="account_name" class="input">
+                                <input type="text" name="account_name" id="account_name" placeholder="{{__('ar.accounts.account_name')}}">
+                            </label>
+                        </section>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+                                    <input type="email" name="email" placeholder="{{__('ar.customers.email')}}">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input"> <i class="icon-append fa fa-phone"></i>
+                                    <input type="tel" name="phone" placeholder="{{__('ar.customers.phone')}}" data-mask="(999)9999-9999">
+                                </label>
+                            </section>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <section>
+                                <select name="account_group" style="width:100%" class="select_account_group">
+                                    <option value="VT">Vermonta</option>
+                                    <option value="VA">Virginaa</option>
+                                    <option value="V3">Virgin3a</option>
+                                    <option value="V4">Virgin4a</option>
+                                    <option value="V5">Virgin5a</option>
+                                    <option value="WV">West Vir</option>
+                                </select>
+                        </section>
+                    </fieldset>
 
-                                {{__('ar.customerservice.ticket.execute_ticket')}}</button>
-                            <button type="button" data-link=close-ticket class="ticket_modal btn btn-labeled btn-danger">
-                                <span class="btn-label"><i class="fa fa-minus-square"></i></span>
-                                {{__('ar.customerservice.ticket.close_ticket')}}</button>
-
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <footer>
+                        {{csrf_field()}}
+                        <button name="form_btn" type="submit" class="btn btn-primary">
+                            {{__('ar.accounts.add_account')}}
+                        </button>
+                    </footer>
+                </form>
 
 
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Cancel
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        Post Article
-                    </button>
+
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -180,6 +182,7 @@
 </div>
     @endsection
 @section('customjs')
+    <script src="/assets/js/plugin/select2/select2.min.js"></script>
     <script src="/assets/js/plugin/datatables/jquery.dataTables.min.js"></script>
     <script src="/assets/js/plugin/datatables/dataTables.colVis.min.js"></script>
     <script src="/assets/js/plugin/datatables/dataTables.tableTools.min.js"></script>
@@ -190,7 +193,25 @@
     <script src="/assets/js/accounting.js"></script>
     <script>
     $(document).ready(function() {
-
+        function matchCustom(params, data) {
+            if ($.trim(params.term) === '') {
+                return data;
+            }
+            if (typeof data.text === 'undefined') {
+                return null;
+            }
+            if (data.text.indexOf(params.term) > -1) {
+                var modifiedData = $.extend({}, data, true);
+                modifiedData.text += ' (matched)';
+                return modifiedData;
+            }
+            return null;
+        }
+        $('.select_account_group').select2({
+            matcher: matchCustom,
+            placeholder: 'Select an option',
+            tags: true
+        });
     pageSetUp();
 
     /* // DOM Position key index //
@@ -273,7 +294,7 @@
 
 
     /* END TABLETOOLS */
-        create_modal({modal:"AddAccountModal",modal_btn:"add_account"});
+        create_modal({modal:"AddAccountModal",modal_btn:"add_account",form_name:"accounts_form"});
     });
     </script>
     @endsection

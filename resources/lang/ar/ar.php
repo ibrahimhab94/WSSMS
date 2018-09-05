@@ -95,7 +95,9 @@ return [
         'list'=>'قائمة الحسابات',
         'accounting'=>'الحسابات',
         'dashboard'=>'الحسابات',
-        'add_account'=>'إضافة حساب ',
+        'add_account'=>'إضافة حساب  جديد',
+        'account_name'=>'اسم الحساب',
+
 
     ]
 ];

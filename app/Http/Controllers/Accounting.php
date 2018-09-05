@@ -9,6 +9,9 @@
 namespace WSSMS\Http\Controllers;
 
 
+
+use Illuminate\Http\Request;
+
 class Accounting extends Controller
 {
     public function __construct()
@@ -17,5 +20,8 @@ class Accounting extends Controller
     }
     public function tree(){
         return $this->v('dashboard.accounts.dashboard');
+    }
+    public function add_account(Request $r){
+        return $r->all();
     }
 }
