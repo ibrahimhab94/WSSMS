@@ -96,6 +96,7 @@ return [
         'accounting'=>'الحسابات',
         'dashboard'=>'الحسابات',
         'add_account'=>'إضافة حساب  جديد',
+        'super_account' => 'الحساب الرئيسي',
         'account_name'=>'اسم الحساب',
 
 

@@ -149,6 +149,12 @@
                                 </label>
                             </section>
                         </div>
+                        <section class="">
+                            <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+                                <input type="text" name="super_account"
+                                       placeholder="{{__('ar.accounts.super_accounts')}}">
+                            </label>
+                        </section>
                     </fieldset>
                     <fieldset>
                         <section>
@@ -213,24 +219,6 @@
             tags: true
         });
     pageSetUp();
-
-    /* // DOM Position key index //
-
-    l - Length changing (dropdown)
-    f - Filtering input (search)
-    t - The Table! (datatable)
-    i - Information (records)
-    p - Pagination (paging)
-    r - pRocessing
-    < and > - div elements
-    <"#id" and > - div with an id
-    <"class" and > - div with a class
-    <"#id.class" and > - div with an id and class
-
-    Also see: http://legacy.datatables.net/usage/features
-    */
-
-    /* BASIC ;*/
     var responsiveHelper_dt_basic = undefined;
     var responsiveHelper_datatable_fixed_column = undefined;
     var responsiveHelper_datatable_col_reorder = undefined;
@@ -285,15 +273,6 @@
     .draw();
 
     } );
-    /* END COLUMN FILTER */
-
-
-    /* END COLUMN SHOW - HIDE */
-
-    /* TABLETOOLS */
-
-
-    /* END TABLETOOLS */
         create_modal({modal:"AddAccountModal",modal_btn:"add_account",form_name:"accounts_form"});
     });
     </script>
