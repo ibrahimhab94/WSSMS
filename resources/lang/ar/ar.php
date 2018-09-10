@@ -96,9 +96,14 @@ return [
         'accounting'=>'الحسابات',
         'dashboard'=>'الحسابات',
         'add_account'=>'إضافة حساب  جديد',
+        'add_account_group' => 'إضافة مجموعة حسابات',
+        'account_no' => 'رقم الحساب',
         'super_account' => 'الحساب الرئيسي',
         'account_name'=>'اسم الحساب',
-
-
+        'group_name' => 'اسم المجموعه',
+        'super_group' => 'مجموعه رئيسية ',
+        'add_group_form' => 'إضافة المجموعه',
+        'group_no' => 'رقم المجموعه',
+        'account_group' => 'مجموعه الحساب ',
     ]
 ];

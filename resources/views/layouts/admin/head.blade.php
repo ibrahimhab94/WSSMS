@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- #CSS Links -->
     <!-- Basic Styles -->
+
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/demo.min.css">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/smartadmin-production-plugins.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/smartadmin-production.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/smartadmin-skins.min.css">
-
+    <link rel="stylesheet" href="/assets/css/selectize.css">
     <!-- SmartAdmin RTL Support -->
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/smartadmin-rtl.min.css">
 
@@ -25,7 +26,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/custom.css">
     <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-
     <!-- #FAVICONS -->
     <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">

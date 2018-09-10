@@ -36,4 +36,6 @@ Route::get('/Dashboard/Employees/GET','CustomerService@getEmployees')->name('get
 Route::prefix('/Dashboard/Accounting/')->group(function () {
     Route::get('Accounts/Tree','Accounting@tree')->name('accounts_tree');
     Route::post('Accounts/Add','Accounting@add_account')->name('add_accounts_post');
+    Route::post('Accounts/Group/Add', 'Accounting@add_account_group')->name('add_account_group_post');
+    Route::post('Accounts/Group/Get/Json', 'Accounting@getAccountGroups')->name('get_account_groups_json');
 });
